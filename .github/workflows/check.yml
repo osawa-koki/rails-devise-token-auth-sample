@@ -1,0 +1,37 @@
+name: Check
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+      - issues/*
+  pull_request:
+    branches:
+      - main
+      - develop
+      - issues/*
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        ruby-version: [ 3.2.2 ]
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+    - name: Use Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: ${{ matrix.ruby-version }}
+    - name: Install dependencies
+      run: |
+        gem install bundler
+        bundle install
+    - name: Run linter
+      run: rubocop
+    - name: DB setup
+      run: rails RAILS_ENV=test db:migrate
+    - name: Run tests
+      run: rails test
