@@ -49,3 +49,5 @@ group :development do
 end
 
 gem 'rubocop', '~> 1.54'
+
+gem 'devise_token_auth', '~> 1.2'
