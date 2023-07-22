@@ -26,6 +26,17 @@ config.middleware.use ActionDispatch::Cookies
 config.middleware.use config.session_store, config.session_options
 ```
 
+また、変更できるプロパティを増やすためには、`ApplicationController`に以下の行を追加します。  
+※ 以下の例では、`name`と`nickname`を変更できるようにしています。  
+
+```shell
+before_action :configure_permitted_parameters, if: :devise_controller?
+
+def configure_permitted_parameters
+  devise_parameter_sanitizer.permit(:account_update, keys: %i[name nickname])
+end
+```
+
 認証に関するリクエストの詳細は、`sample.http`を参照してください。  
 `VS Code`の`REST Client`拡張機能を使用しています。  
 
