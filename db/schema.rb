@@ -12,7 +12,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 20_230_721_150_619) do
+ActiveRecord::Schema[7.0].define(version: 20_230_722_081_416) do
+  create_table 'prefectures', force: :cascade do |t|
+    t.string 'name', null: false
+    t.string 'prefectural_capital'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.index ['name'], name: 'index_prefectures_on_name', unique: true
+  end
+
   create_table 'users', force: :cascade do |t|
     t.string 'provider', default: 'email', null: false
     t.string 'uid', default: '', null: false
