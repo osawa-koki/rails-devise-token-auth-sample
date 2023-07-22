@@ -4,7 +4,10 @@
 
 ## 準備方法
 
+### Deviseの準備
+
 ```shell
+bundle add devise_token_auth
 rails g devise:install
 rails g devise_token_auth:install User auth
 ```
@@ -25,3 +28,5 @@ config.middleware.use config.session_store, config.session_options
 
 認証に関するリクエストの詳細は、`sample.http`を参照してください。  
 `VS Code`の`REST Client`拡張機能を使用しています。  
+
+### 
