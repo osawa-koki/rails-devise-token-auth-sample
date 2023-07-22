@@ -48,6 +48,8 @@ uid: user@example.com
 
 {
   "password": "password",
+  "name": "hogehoge",
+  "nickname": "hoge",
 }
 
 ###
