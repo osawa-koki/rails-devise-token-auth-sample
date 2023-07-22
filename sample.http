@@ -1,0 +1,60 @@
+# ユーザ登録。
+POST http://localhost:8000/api/auth
+Content-Type: application/json
+
+{
+  "email":"user@example.com",
+  "password":"password",
+  "password_confirmation": "password"
+}
+
+###
+
+# ログイン。
+POST http://localhost:8000/api/auth/sign_in
+Content-Type: application/json
+
+{
+  "email":"user@example.com",
+  "password":"password"
+}
+
+###
+
+# ログアウト。
+DELETE http://localhost:8000/api/auth/sign_out
+Content-Type: application/json
+access-token: <access-token>
+client: <client>
+uid: user@example.com
+
+###
+
+# ユーザ情報の取得。
+GET http://localhost:8000/api/auth/validate_token
+Content-Type: application/json
+access-token: <access-token>
+client: <client>
+uid: user@example.com
+
+###
+
+# ユーザ情報の更新。
+PUT http://localhost:8000/api/auth
+Content-Type: application/json
+access-token: <access-token>
+client: <client>
+uid: user@example.com
+
+{
+  "password": "password",
+}
+
+###
+
+# ユーザの削除。
+DELETE http://localhost:8000/api/auth
+Content-Type: application/json
+access-token: <access-token>
+client: <client>
+uid: user@example.com
