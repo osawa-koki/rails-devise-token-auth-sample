@@ -29,4 +29,19 @@ config.middleware.use config.session_store, config.session_options
 認証に関するリクエストの詳細は、`sample.http`を参照してください。  
 `VS Code`の`REST Client`拡張機能を使用しています。  
 
-### 
+### CORSの設定
+
+`bundle add rack-cors`で`rack-cors`をインストールします。  
+
+`./config/initializers/cors.rb`の以下の行のコメントアウトを外します。  
+
+```rb
+Rails.application.config.middleware.insert_before 0, Rack::Cors do
+  allow do
+    origins 'localhost:3000'
+    resource '*',
+             headers: :any,
+             methods: %i[get post put patch delete options head]
+  end
+end
+```
