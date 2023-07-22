@@ -45,3 +45,12 @@ Rails.application.config.middleware.insert_before 0, Rack::Cors do
   end
 end
 ```
+
+## 使い方
+
+`authenticate_api_user!`メソッドで認証を行います。  
+※ メソッド名はルーティングによって異なります。  
+一般的には、`before_action :authenticate_user!`メソッドで自動的に認証を行うように登録します。  
+
+また、ユーザ情報は`current_api_user`メソッドで取得できます。  
+こちらもメソッド名はルーティングによって異なります。  
