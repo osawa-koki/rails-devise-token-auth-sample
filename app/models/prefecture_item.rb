@@ -1,0 +1,2 @@
+class PrefectureItem < ApplicationRecord
+end
