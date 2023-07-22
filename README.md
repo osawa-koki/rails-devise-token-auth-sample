@@ -2,6 +2,13 @@
 
 🫦🫦🫦 APIモードのRailsで認証機能(devise_token_auth)を使用してみる！  
 
+## 実行方法
+
+```shell
+docker build -t rails-devise-token-auth-sample .
+docker run -d --rm -p 8000:8000 --name rails-devise-token-auth-sample rails-devise-token-auth-sample
+```
+
 ## 準備方法
 
 ### Deviseの準備
